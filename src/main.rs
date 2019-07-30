@@ -15,6 +15,10 @@ macro_rules! scanline {
 //     }
 // }
 
+// More on Macros: https://doc.rust-lang.org/1.7.0/book/macros.html
+//
+// :expr is no type. It's like a Metatype. Others are ident, path, ty, pat, stmt, block, item, tt
+// These are types of arguments. 
 macro_rules! flush {
     ($x:expr) => {
         $x().flush().expect("should flush here");
