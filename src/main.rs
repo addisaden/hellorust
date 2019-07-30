@@ -7,12 +7,30 @@ macro_rules! scanline {
     };
 }
 
+// io::stdin().read_to_string(&mut name);
+
+// macro_rules! scan {
+//     ($x:expr) => {
+//         io::stdin().read_to_string(&mut $x).unwrap();
+//     }
+// }
+
+macro_rules! flush {
+    ($x:expr) => {
+        $x().flush().expect("should flush here");
+    }
+}
+
 fn main() {
     let zahl = 15;
     let mut name = String::new();
-    // io::stdin().read_to_string(&mut name);
+
     print!("Name: ");
-    io::stdout().flush().expect("should flush here");
+
+    // Try to replace flush with a macro
+    // io::stdout().flush().expect("should flush here");
+    flush!(io::stdout);
+
     scanline!(name);
     name = name.trim().to_string();
     println!("Hello, {}! {}", name, zahl * zahl);
